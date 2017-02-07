@@ -2,35 +2,12 @@
 
 #!/usr/bin/python
 
-from flask import Flask, jsonify
+from flask import Flask
+app = Flask(__name__)     #创建一个wsgi应用
 
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return 'index'
-
-#使用<user>传递参数
-@app.route('/hello/<user>')
-def hello_get(user):
-    return 'hello get %s' % user
-
-#使用POST请求
-@app.route('/hello/<user>', methods=['POST'])
-def hello_post(user):
-    return 'hello post %s' % user
-
-@app.route('/hotCity')
-def hotCity():
-    cities = ['北京', '上海', '广州']
-    return jsonify({
-            'code': 0, 
-            'cities': cities,
-        })
+@app.route('/')           #添加路由：根
+def hello_world():
+    return 'Hello World!' #输出一个字符串
 
 if __name__ == '__main__':
-    app.run()
-
-
-#还可以浏览器调试 
-#    app.run(debug=True)
+    app.run(debug=True)             #启动app的调试模式
