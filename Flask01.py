@@ -30,5 +30,14 @@ def project():
 def about():
     return 'The about page'
 
+@app.route('/login', methods=['GET', 'POST'])       #给 route() 装饰器提供 methods 参数
+def login():
+    if request.method == 'POST':
+        do_the_login()
+    else:
+        show_the_login_form()
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
