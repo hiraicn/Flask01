@@ -3,22 +3,24 @@
 #!/usr/bin/python
 
 from flask import Flask
-import json
 
-app = Flask(__name__)     #创建一个wsgi应用
+app = Flask(__name__)
 
-@app.route('/')           #添加路由：根
-def hello_world():
-    return 'Hello World!' #输出一个字符串
+@app.route('/')
+def index():
+    return 'Index Page'
 
 @app.route('/hello')
-def do_hello():
-    return '<h1>Hello, strange!'
+def hello_world():
+    return 'Hello World!'
 
-@app.route('/json')
-def do_json():
-    hello = {"name":"strange","say":"hello"}
-    return json.dumps(hello)
+@app.route('/user/<username>')
+def show_user_profile(username):
+    return 'User %s' % username     # 显示用户名称
+
+@app.route('/post/<int:post_id>')
+def show_post(post_id):
+    return 'Post %d' % post_id      # 显示提交整型的用户"id"的结果，注意"int"是将输入的字符串形式转换为整型数据
 
 if __name__ == '__main__':
-    app.run(debug=True)             #启动app的调试模式
+    app.run(debug=True)
