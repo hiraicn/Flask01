@@ -22,7 +22,7 @@ def show_user_profile(username):
 def show_post(post_id):
     return 'Post %d' % post_id      # 显示提交整型的用户"id"的结果，注意"int"是将输入的字符串形式转换为整型数据
 
-@app.route('/project/')     #不建议这种写法
+@app.route('/project/')     # 不建议这种写法
 def project():
     return 'The project page'
 
