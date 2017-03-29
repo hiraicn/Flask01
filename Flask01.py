@@ -3,6 +3,7 @@
 #!/usr/bin/python
 
 from flask import Flask
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -46,6 +47,10 @@ def login():
 @app.route('/sum/<int:a>/<int:b>')
 def sum(a,b):
     return '%d' %(a+b)
+
+@app.route('/lesson4') #第4节习题
+def lesson4():
+    return render_template('lesson4.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
