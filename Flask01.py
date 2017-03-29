@@ -43,12 +43,12 @@ def login():
     else:
         show_the_login_form()
 
-# 习题：输入http://127.0.0.1/sum/a/b时，其中a和b都是数字，服务器返回它们的和。
+# 第3节习题
 @app.route('/sum/<int:a>/<int:b>')
 def sum(a,b):
     return '%d' %(a+b)
-
-@app.route('/lesson4') #第4节习题
+# 第4节习题
+@app.route('/lesson4')
 def lesson4():
     return render_template('lesson4.html')
 
